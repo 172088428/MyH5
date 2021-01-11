@@ -1,0 +1,42 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+ul,ol,li{
+	list-style: none;
+}
+p {
+	font-size: 1.3rem;
+	text-align: justify;
+	text-indent: 4rem;
+	line-height: 2rem;
+}
+.wordsbox{
+	width: 68.75rem;
+	margin: 0 auto;	
+	display: flex;
+	flex-direction: column;
+}
+h3{
+	text-indent: 2rem;
+}
+.img img{
+	width: 62.5rem;
+}
+.wordsbox .Signed{
+	text-indent: 50rem;
+	line-height: 3rem;
+}
+.wordsbox .Signed-1{
+	line-height: 6rem;
+}
+h1{
+	font-size: 3rem;
+}
+h2{
+	font-size: 2rem;
+}
+h3{
+	font-size: 1.6rem;
+}
