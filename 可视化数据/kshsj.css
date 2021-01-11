@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ol, ul {
+    list-style: none;
+}
+body{
+    width: 24rem;
+    height: 13.5rem;
+    background: url("背景.png") no-repeat top center;
+    opacity: 0.6;
+    background-size: 100% 100%;
+}
+
+.topbox {
+    width: 24rem;
+    height: 1.5rem;
+    background: url("标题-2.png") no-repeat top center;
+    background-size: 100% 100%;
+
+}
+
+.topbox h3 {
+    text-align: center;
+    font-size: 0.7rem;
+    line-height: 1.2rem;
+    color:white;
+}
+
+.topbox .showtime {
+    display: flex;
+    justify-content: flex-end ;
+    font-size: 0.35rem;
+    color: white;
+    margin-right: 0.35rem;
+    margin-top: -0.5rem;
+}
+.topbox .logo {
+    display: flex;
+    justify-content: flex-start ;
+    font-size: 0.55rem;
+    color: white;
+    margin-left: 1rem;
+    margin-top: -0.5rem;
+}
+.bottombox {
+    width: 24rem;
+    height: 12rem;
+    display: flex;
+    flex-direction: row;
+
+}
+.bottombox .leftbox{
+    width: 6rem;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+}
+.bottombox .leftbox-3 {
+    width: 6rem;
+    height: 4rem;
+    background: url("图框1.png") no-repeat top center ;
+    background-size: 100% 98%;
+}
+.bottombox .centerbox {
+     width: 6rem;
+     height: 12rem;
+     display: flex;
+     flex-direction: column;
+
+}
+.bottombox  .centerbox-2{
+    width: 12rem;
+    height:6rem;
+    background: url("图框1.png") no-repeat top center ;
+    background-size: 100% 98%;
+
+}
+.bottombox .rightbox {
+    width: 6rem;
+    height: 12rem;
+    margin-left: 6rem;
+
+}
+.bottombox .rightbox-3 {
+    width: 6rem;
+    height: 4rem;
+    background: url("图框1.png") no-repeat top center;
+    background-size: 100% 98%;
+}
+
+
+
+
+
+

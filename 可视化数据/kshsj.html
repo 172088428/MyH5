@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新野光海科技</title>
+    <link rel="stylesheet" href="kshsj.css">
+    <script src="kshsj.js"></script>
+    <script src="index.js"></script>
+    <script src="echarts.js"></script>
+</head>
+<body>
+     <div class="topbox">
+         <h3>数据可视化展板</h3>
+         <div class="topbox-1">
+             <div class="showtime"></div>
+             <div class="logo">新 野 光 海 科 技</div>
+         </div>
+     </div>
+     <div class="bottombox">
+         <div class="leftbox">
+             <div class="leftbox-1 leftbox-3">
+
+             </div>
+             <div class="leftbox-2 leftbox-3">
+
+             </div>
+             <div class="leftbox-4 leftbox-3">
+
+             </div>
+
+         </div>
+         <div class="centerbox">
+             <div class="centerbox-2"></div>
+             <div class="centerbox-2"></div>
+
+         </div>
+         <div class="rightbox">
+             <div class="rightbox-3">
+
+             </div>
+             <div class="rightbox-3">
+
+             </div>
+             <div class="rightbox-3">
+
+             </div>
+
+         </div>
+     </div>
+     <script>
+         var myChart = echarts.init(document.querySelector('.leftbox-1'));
+         var option = {
+             title: {
+                 text: 'ECharts 数据统计'
+             },
+             tooltip: {},
+             legend: {
+                 data: ['用户来源']
+             },
+             xAxis: {
+                 data: ["Android", "IOS", "PC", "Ohter"]
+             },
+             yAxis: {},
+             series: [{
+                 name: '访问量',
+                 type: 'line',
+                 data: [500, 200, 360, 100]
+             }]
+         };
+         myChart.setOption(option);
+         window.addEventListener("resize",function () {
+             myChart.resize();
+
+         })
+     </script>
+</body>
+
+
+</html>
