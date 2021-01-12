@@ -20,6 +20,7 @@
 			<div class="lbt">
 				<img v-for="(lb,index) in listlb"   :src="lb"  :key="index"  v-show="index===num">
 			</div>
+			
 	</body>
 	<script type="text/javascript">
 		let bt = new Vue({
@@ -60,7 +61,6 @@
 						if (this.num == 8) {
 							this.num = 0
 						}
-			
 					}, 3000)
 				},
 				change(i) {
@@ -75,7 +75,6 @@
 			},
 			created() {
 				this.play();
-			
 			},
 		})
 	</script>
