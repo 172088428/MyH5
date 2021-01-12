@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script src="js/vue.js" type="text/javascript" charset="utf-8">
+		</script>
+	</head>
+
+	<body>
+
+		<div class="app">
+
+			<img v-for="(item,index) in imgArr" :src="item" :key="index" v-show="index===num">
+
+		</div>
+
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: ".app",
+				data: {
+					time: "",
+					num: 0,
+					mark: 0,
+					imgArr: [
+						"img/1.jpg",
+						"img/2.jpg",
+						"img/3.jpg",
+						"img/4.jpg",
+						"img/5.jpg",
+					],
+				},
+				methods: {
+					play() {
+						this.time = setInterval(() => {
+							this.num++;
+							if (this.num == 5) {
+								this.num = 0
+							}
+
+						}, 2000)
+					},
+					change(i) {
+						this.num = i
+					},
+					stop() {
+						clearInterval(this.time)
+					},
+					move() {
+						this.play();
+					}
+				},
+				created() {
+					this.play();
+
+				},
+
+			})
+		</script>
+	</body>
+</html>

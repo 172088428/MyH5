@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>光海教育</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body>
+			<header class="mui-bar mui-bar-nav">
+				
+			</header>
+			<nav class="nav">
+				<ul>
+					<li v-for="(lv,index) in listnav" :key="index">
+						<a href="">{{lv}}</a>		
+					</li>
+				</ul>
+			</nav>
+			<div class="lbt">
+				<img v-for="(lb,index) in listlb"   :src="lb"  :key="index"  v-show="index===num">
+			</div>
+	</body>
+	<script type="text/javascript">
+		let bt = new Vue({
+			el: ".nav",
+			data: {
+				listnav: [
+					"公司简介",
+					"宣传视频",
+					"微校通",
+					"微幼通",
+					"公司地址"
+				]
+			}
+		})
+	</script>
+	<script type="text/javascript">
+		let lb = new Vue({
+			el: ".lbt",
+			data: {
+				time:"",
+				num:0,
+				listlb: [
+					"img/01.jpg",
+					"img/11.jpg",
+					"img/1.jpg",
+					"img/2.jpg",
+					"img/3.jpg",
+					"img/4.jpg",
+					"img/5.jpg",
+					"img/6.jpg",
+					"img/7.jpg",
+				]
+			},
+			methods: {
+				play() {
+					this.time = setInterval(() => {
+						this.num++;
+						if (this.num == 8) {
+							this.num = 0
+						}
+			
+					}, 3000)
+				},
+				change(i) {
+					this.num = i
+				},
+				stop() {
+					clearInterval(this.time)
+				},
+				move() {
+					this.play();
+				}
+			},
+			created() {
+				this.play();
+			
+			},
+		})
+	</script>
+</html>

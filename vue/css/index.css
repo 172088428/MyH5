@@ -1,0 +1,25 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+.app{
+	width: 12rem;
+	height: 7rem;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;	
+	position: relative;
+}
+.app img{
+	width: 12rem;
+	height: 7rem;
+	position: absolute;
+}
