@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>光海教育</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body>
+		<div class="page">
+			<header class="mui-bar mui-bar-nav">
+				<a href="http://www.weixiaotong.com/" target="self">
+					<div class="logo"></div>
+				</a>
+				<div class="Tagline"></div>
+				<div class="TEL"></div>
+			</header>
+			<nav class="menu">
+				<ul>
+					<li v-for="(mus,index) in listmu" :key="index">
+						<a href="">{{mus}}</a>
+					</li>
+				</ul>
+				<div class="img">
+					<img v-for="(imgs,index) in listimg" :src="imgs" :key="index" v-show="index===mark">
+				</div>
+				<div class="bt">
+					<img @click="sub" class="left" src="img/左.png">
+					<img @click="add" class="right" src="img/右.png">
+				</div>
+			</nav>
+			<div class="video">
+					<video v-for="(dvs,index) in listdv" :src="dvs" :key="index" controls="controls"></video>
+			</div> 
+		</div> 
+	</body>
+				 <script type="text/javascript">
+					let mu = new Vue({
+					el: ".menu",
+					data: {
+					mark:0,
+					time:"",
+					listmu: [
+					"首 页",
+					"公司简介",
+					"新闻动态",
+					"校园风采",
+					"公司资料",
+					"视频资料",
+					],
+					listimg: [
+					"./img/1.jpg",
+					"./img/2.jpg",
+					"./img/3.jpg",
+					"./img/4.jpg",
+					"./img/5.jpg",
+					"./img/6.jpg",
+					"./img/7.jpg",
+					"./img/8.jpg",
+					],
+					},
+					methods: {
+					add: function() {
+					this.mark++;
+					if (this.mark >= 8) {
+					this.mark = 0
+					}
+					},
+					sub: function() {
+					this.mark--;
+					if (this.mark <= 0) { this.mark=0 } }, play() { this.time=setInterval(()=> {
+						this.mark++;
+						if (this.mark == 8) {
+						this.mark = 0
+						}
+						}, 2000)
+						},
+						change(i) {
+						this.mark = i
+						},
+						stop() {
+						clearInterval(this.time)
+						},
+						move() {
+						this.play();
+						}
+						},
+						created() {
+						this.play();
+						}
+						})
+						</script>
+						<script type="text/javascript">
+							let dv = new Vue({
+								el: ".video",
+								data:{
+									listdv:[
+										"https://zy-input.weijiangshi.cn/online/video/71477425_%E4%B8%8A%E6%B8%AF%E5%88%B7%E8%84%B8+%E6%99%BA%E8%83%BD%E8%BF%9B%E6%A0%A1%E5%9B%AD.mp4",
+										"https://zy-input.weijiangshi.cn/online/video/1544076342_2018.8.20%E5%BE%AE%E6%A0%A1%E9%80%9A%E5%AE%A3%E4%BC%A0%E7%89%87%EF%BC%88%E4%B8%AD%E5%B0%8F%E5%AD%A6%EF%BC%89.mp4",
+										"https://zy-input.weijiangshi.cn/online/video/346358321_2018.9.6%E5%B9%BC%E5%84%BF%E5%9B%AD%E5%AE%A3%E4%BC%A0%E7%89%87.mp4",
+									]
+								}
+							})
+						</script>
+						*{
+							margin: 0;
+							padding: 0;
+							box-sizing: border-box;
+						}
+						ul,ol,li{
+							list-style: none;
+						}
+						a{
+							text-decoration: none;
+							color: #000000;
+						}
+						
+						body{
+							background: url(../img/标题2.jpg) no-repeat top center;
+						}
+						.page{
+							width: 75rem;
+							margin: 0 auto;
+							
+						}
+						.mui-bar{
+							width:100%;
+							height: 8rem;
+							margin-top: 6.875rem;
+							display: flex;
+							flex-direction: row;
+						}
+						.mui-bar .logo{
+							width: 17rem;
+							height: 4rem;
+							background: url(../img/logo.png) no-repeat center center;
+							background-size: 100% 100%;
+							
+						}
+						.mui-bar .Tagline{
+							width: 37.5rem;
+							background: url(../img/宣传语.jpg) no-repeat center center;
+							background-size: 100% 100%;
+							margin-left: 7rem;
+						}
+						.mui-bar .TEL{
+							width: 13.75rem;
+							background: url(../img/电话.png) no-repeat center right;
+							background-size: 100% 100%;
+							margin-left: 5rem;	
+						}
+						.menu{
+							display: flex;
+							flex-direction: row;
+							position: relative;
+						}
+						.menu ul{
+							display: flex;
+							flex-direction: column;
+							font-size: 2.5rem;
+							margin-left: 2rem;
+						}
+						.menu li{
+							width: 11.25rem;
+							text-align: center;
+							border: 0.0625rem black double;
+							border-radius: 6.25rem;
+							margin-top: 1.7rem;
+						}
+						.img {
+							width: 56.25rem;
+							height: 31.25rem;
+							margin-left: 3rem;
+							margin-top: 1rem;
+						}
+						.img img{
+							width: 100%;
+							height: 100%;
+						}
+						.bt img{
+							width: 4rem;
+							height: 4rem;
+							opacity: 0;
+						}
+						.bt .left{
+							position: absolute;
+							top: 14rem;
+							left: 15rem;
+						}
+						.bt .right{
+							position: absolute;
+							top: 14rem;
+							left: 69.5rem;
+						}
+						.bt .left:hover{
+							opacity:1;
+						}
+						.bt .right:hover{
+							opacity:1;
+						}
+						.video{
+							display: flex;
+							flex-direction: column;
+						}
+						.video video{
+							width: 35rem;
+							height: 35rem;
+						}
+						
+						
+						
+</html>
