@@ -10,9 +10,9 @@
 
 		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
 
-		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
 	</head>
-	<body>
+	<body id="app">
 		<div class="page">
 			<header class="mui-bar mui-bar-nav">
 				<a href="http://www.weixiaotong.com/" target="self">
@@ -52,19 +52,29 @@
 							我们始终将成为最优秀的教育信息化服务提供商作为公司愿景，始终将客户放在第一位，始终将提供一流产品和一流服务作为公司的核心价值观文化。
 						</p>
 				</div>
-				<div class="video">
-
-					<video v-for="(dvs,index) in listdv" :src="dvs" :key="index" controls="controls"></video>	
-				</div>
-				<div class="text1">
-					<h1 v-for="(texts,index) in listtext" :key="index">{{texts}}</h1>
-				</div>
-				<div class="Address">
-					<p>公司地址：河南省南阳市新野县锦绣山河107、108商铺</p>
+				<div class="videos">
+					<div class="video-text">
+						<h2 v-for="(texts,index) in listtext">
+							{{texts}}
+						</h2>
+					</div>
+					<div class="video">
+						<video v-for="(dvs,index) in listdv" :src="dvs" :key="index" controls="controls"></video>
+					</div>
 				</div>
 			</div>
-		</div>
+
+			<div class="Address">
+					<a href="#app">
+						<div id="">
+							
+						</div>
+					</a>
+			</div>
+
 	</body>
+	     
+	
 	<script type="text/javascript">
 		let mu = new Vue({
 			el: ".menu",
@@ -128,26 +138,34 @@
 	</script>
 	<script type="text/javascript">
 		let dv = new Vue({
-			el: ".video",
+			el: ".videos",
 			data: {
 				listdv: [
-					"./img/1.mp4",
+
 					"https://zy-input.weijiangshi.cn/online/video/1544076342_2018.8.20%E5%BE%AE%E6%A0%A1%E9%80%9A%E5%AE%A3%E4%BC%A0%E7%89%87%EF%BC%88%E4%B8%AD%E5%B0%8F%E5%AD%A6%EF%BC%89.mp4",
 					"https://zy-input.weijiangshi.cn/online/video/346358321_2018.9.6%E5%B9%BC%E5%84%BF%E5%9B%AD%E5%AE%A3%E4%BC%A0%E7%89%87.mp4",
+					"https://static.weixiaotong.com.cn/2babb456c7965c91775f5c5d85c233a691390a75.mp4",
+					"https://static.weixiaotong.com.cn/27bd9f697091c522c2e3f3e5294bee1464b4ca43.mp4",
+					"https://static.weixiaotong.com.cn/8109c3e1a242239649426a02cc8b559de11efec0.mp4",
+					"https://static.weixiaotong.com.cn/fc300778b668146b6e5b9a4b8ecd0943c03322b2.mp4",
+					"https://static.weixiaotong.com.cn/e7fdb5861196953c978ee7290683300dd7f2d17b.mp4",
+					"https://static.weixiaotong.com.cn/5eb7375ded3f0db116baceb1bcb1bbc1ea0ace3c.mp4",
+					"https://static.weixiaotong.com.cn/6f2fcd8350f5ac755139c9b960d51278f5e63ab4.mp4",
+					"https://static.weixiaotong.com.cn/4df45b6c1b50a1d7e0ec136efb104c7daecd04b1.mp4",
 				],
-			}
-		})
-	</script>
-	
-	<script type="text/javascript">
-		let text = new Vue({
-			el: ".text1",
-			data: {
 				listtext: [
-					"走进智慧校园",
+
 					"光海微校通",
 					"光海微幼通",
-				]
+					"走进智慧校园",
+					"光海教育向儋州市捐赠506.55万元疫情防控平台及设备",
+					"测温闸机",
+					"智慧班牌",
+					"宿舍班牌",
+					"访客系统",
+					"智慧校车",
+					"教务大屏",
+				],
 			}
 		})
 	</script>

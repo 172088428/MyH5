@@ -10,9 +10,9 @@ a{
 	text-decoration: none;
 	color: #000000;
 }
-
 body{
 	background: url(../img/标题2.jpg) no-repeat top center;
+	margin: 0 auto;
 }
 [v-cloak]{
 	display: none;
@@ -20,7 +20,6 @@ body{
 .page{
 	width: 75rem;
 	margin: 0 auto;
-	
 }
 .mui-bar{
 	width:100%;
@@ -34,7 +33,6 @@ body{
 	height: 4rem;
 	background: url(../img/logo.png) no-repeat center center;
 	background-size: 100% 100%;
-	
 }
 .mui-bar .Tagline{
 	width: 37.5rem;
@@ -66,6 +64,7 @@ body{
 	border-radius: 6.25rem;
 	margin-top: 1.7rem;
 }
+
 .img {
 	width: 56.25rem;
 	height: 31.25rem;
@@ -111,27 +110,48 @@ body{
 .text p{
 	text-indent: 4rem;
 }
+.videos{
+	width: 75rem;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
 .video{
+	width: 75rem;
+	height: 113.75rem;
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
+	
 }
-.video video{
-	width: 25rem;
-	height: 13rem;
-	border: 0.125rem black solid;
-	margin-top: 1rem;
+.video video {
+	width: 36rem;
+	height: 20.8125rem;
+	object-fit: fill;
+	margin-left: 1rem;
+	
 }
-.text1{
+.video-text{
+	width: 75rem;
+	height: 113.75rem;
 	display: flex;
 	flex-direction: row;
-    letter-spacing:0.625rem; 
+	flex-wrap: wrap;
+	position: absolute;	
 }
-.text1 h1{
-	width: 25rem;
+.video-text h2{
+	width: 37rem;
 	text-align: center;
+	margin-top: 20.8125rem;
 }
-.Address p {
-	margin-top: 1.875rem;
-	font-size: 3rem;
+
+.Address div{
+	width: 187.5rem;
+	height: 12.5rem;
+	background: url(../img/地址.jpg) no-repeat bottom center;
+	margin:  0 auto;
+	background-size: 100% 100%;
+	margin-left: -56.25rem;
 }
+
 
