@@ -100,10 +100,10 @@ body{
 .Bodytext{
 	width: 100%;
 	display: flex;
-	flex-direction:row;
+	flex-direction:column;
 }
 .text{
-	width: 45rem;
+	width: 100%;
 	font-size: 1.5625rem;
 	text-align: justify;
 	margin-top: 3rem;
@@ -113,11 +113,25 @@ body{
 }
 .video{
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 }
 .video video{
-	width: 30rem;
-	height: 20rem;
+	width: 25rem;
+	height: 13rem;
+	border: 0.125rem black solid;
+	margin-top: 1rem;
 }
-
+.text1{
+	display: flex;
+	flex-direction: row;
+    letter-spacing:0.625rem; 
+}
+.text1 h1{
+	width: 25rem;
+	text-align: center;
+}
+.Address p {
+	margin-top: 1.875rem;
+	font-size: 3rem;
+}
 
