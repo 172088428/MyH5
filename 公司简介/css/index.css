@@ -19,9 +19,7 @@ a{
 }
 .nav{
 	height: 5rem;
-	background-color: #DCDCDC;	
-	
-	
+	background-color: #DCDCDC;		
 }
 .nav ul{
 	display: flex;
@@ -36,9 +34,7 @@ a{
 	text-align: center;
 	border:  0.0625rem #000000 solid;
 	margin-left: 1.5rem;
-	border-radius: 1rem;
-	
-	
+	border-radius: 1rem;	
 }
 .nav li:first-child{
 	margin-left: 0px;
@@ -47,7 +43,7 @@ li:hover{
 	background-color: #E6E6FA;
 }
 .lbt{
-	width: 93.75rem;
+	width: 75rem;
 	margin: 0 auto;
 }
 .lbt img{
