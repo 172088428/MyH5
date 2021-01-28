@@ -112,11 +112,11 @@ body{
 }
 .videos{
 	width: 75rem;
+	height: 25rem;
 	display: flex;
 	flex-direction: column;
-	position: relative;
 }
-.video{
+.videos .video{
 	width: 75rem;
 	height: 113.75rem;
 	display: flex;
@@ -125,33 +125,33 @@ body{
 	
 }
 .video video {
-	width: 36rem;
+	width: 36.5rem;
 	height: 20.8125rem;
 	object-fit: fill;
-	margin-left: 1rem;
-	
+	margin-left: 0.58rem;
+	margin-top: 4rem;
+	border: 0.5rem rgba(0,191,255,0.7) solid;
+	border-radius: 2rem;
 }
-.video-text{
-	width: 75rem;
-	height: 113.75rem;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	position: absolute;	
-}
-.video-text h2{
+.video h2{
 	width: 37rem;
 	text-align: center;
-	margin-top: 20.8125rem;
+	transform:translatey(-121.2rem);
+	margin-top: 23rem;
+	margin-left: 0.03rem;
 }
-
-.Address div{
-	width: 187.5rem;
+.Address{
+	width: 75rem;
 	height: 12.5rem;
-	background: url(../img/地址.jpg) no-repeat bottom center;
-	margin:  0 auto;
-	background-size: 100% 100%;
-	margin-left: -56.25rem;
+	transform: translateY(101rem);
+	
 }
+.Address div{
+	width: 75rem;
+	height: 12.5rem;
+	background: url(../img/地址.jpg) no-repeat center center;
+	background-size: 100% 100%;
+	margin-top: 3rem;
+	
 
 

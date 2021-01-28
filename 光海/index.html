@@ -53,25 +53,22 @@
 						</p>
 				</div>
 				<div class="videos">
-					<div class="video-text">
+					<div class="video">
+						<video v-for="(dvs,index) in listdv" :src="dvs" :key="index" controls="controls"></video>
 						<h2 v-for="(texts,index) in listtext">
 							{{texts}}
 						</h2>
 					</div>
-					<div class="video">
-						<video v-for="(dvs,index) in listdv" :src="dvs" :key="index" controls="controls"></video>
-					</div>
+				</div>
+				<div class="Address">
+						<a href="#app">
+							<div id="">
+								
+							</div>
+						</a>
 				</div>
 			</div>
-
-			<div class="Address">
-					<a href="#app">
-						<div id="">
-							
-						</div>
-					</a>
-			</div>
-
+			
 	</body>
 	     
 	
@@ -90,6 +87,7 @@
 					"视频资料",
 				],
 				listimg: [
+					"./img/0.jpg",
 					"./img/1.jpg",
 					"./img/2.jpg",
 					"./img/3.jpg",
@@ -103,7 +101,7 @@
 			methods: {
 				add: function() {
 					this.mark++;
-					if (this.mark >= 8) {
+					if (this.mark >= 9) {
 						this.mark = 0
 					}
 				},
@@ -116,10 +114,10 @@
 				play() {
 					this.time = setInterval(() => {
 						this.mark++;
-						if (this.mark == 8) {
+						if (this.mark == 9) {
 							this.mark = 0
 						}
-					}, 2000)
+					}, 10000)
 				},
 				change(i) {
 					this.mark = i
