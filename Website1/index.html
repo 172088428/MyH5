@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="icon" href="img/标志.png">
+		<link rel="stylesheet" href="css/index.css">
+		<script src="JS/vue.js"></script>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	
+	</head>
+	<body>
+		<div>
+			<header class="header">
+				<img src="img/标题.png">
+			</header>
+			<nav class="nav">
+				<ul class="left_nav">
+					<li v-for="(l_nav,index) in l_listnav" :key="index">
+						<a :href="l_nav.href">{{l_nav.name}}</a>
+					</li>
+				</ul>
+				<ul class="right_nav">
+					<li v-for="(r_nav,index) in r_listnav" :key="index" @mouseover="showup" @mouseout="nodisplay">
+						<a href="">{{r_nav.name}}</a>
+						<img :src="r_nav.src">
+						<ul class="DDW" :style="shows">
+							<li v-for="(r,index) in r_nav.D_name">
+								<a href="">{{r}}</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<div class="input">
+				<img class="gg" src="./img/gg.png">
+				<input type="text" name="" id="" value="" placeholder="请输入查询的信息" />
+				<button type="button">搜索</button>
+				<ul class="Date" v-cloak v-for="(day,index) in days" :key="index">
+					<li>{{day.date}}</li>
+					<li>{{day.time}}</li>
+					<li>{{day.weeks}}</li>
+				</ul>
+			</div>
+			<div class="title1">
+				<div class="l_title">
+					<img src="./img/三横线.png" alt="">
+					<a href="javascript:;">学习科目</a>
+					<img src="img/学习.png">
+				</div>
+				<div class="r_title">
+					<ul>
+						<li v-for="(rtitle,index) in titlelist" :key="index">
+							<a :href="rtitle.href" @mousemove="mover(index)"
+								:style="num==index? 'color: #FF0036;border-bottom: #333 0.2rem solid;':'' ">{{rtitle.name}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<nav class="nav1">
+				<ul>
+					<li v-for="(nav1,index) in listnav1" :key="index">
+						<img class="nva1-icon" :src="nav1.icons" alt="">
+						<a href="">{{nav1.name}}</a>
+						<img class="nva1-icon" :src="nav1.src">
+					</li>
+					<div class="Side-nav" v-for="(Side,index) in Sidelist">
+						<div>
+							<ul class="l_Side-nav">
+								<li v-for="(lSide,index) in Side.lname" :key="index">
+									<a href="">{{lSide}}</a>
+								</li>
+							</ul>
+						</div>
+						<div class="r_Side">
+							<ul class="r_Side-nav">
+								<li v-for="(rSide,index) in Side.rname" :key="index">
+									<a :href="rSide.href">{{rSide.name}}</a>
+								</li>
+							</ul>
+							<ul class="r_Side-nav">
+								<li v-for="(rSide,index) in Side.rname" :key="index">
+									<a :href="rSide.href">{{rSide.name}}</a>
+								</li>
+							</ul>
+							<ul class="r_Side-nav">
+								<li v-for="(rSide,index) in Side.rname" :key="index">
+									<a :href="rSide.href">{{rSide.name}}</a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</ul>
+				<div class="lbt">
+					<img v-for="(lbt,index) in listlbt" :src="lbt" :key="index" @mouseover="stop" @mouseout="move"
+						v-show="index===mark" alt="">
+				</div>
+			</nav>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let leftnav = new Vue({
+			el: '.nav',
+			data: {
+				shows: '',
+				l_listnav: [{
+						'name': '欢迎您的到来!',
+						'href': 'index1.html'
+					},
+					{
+						'name': '请登录',
+						'href': 'Logln.html'
+					},
+					{
+						'name': '免费注册',
+						'href': ''
+					},
+				],
+				r_listnav: [{
+						'name': '我的淘宝',
+						'src': 'img/下箭头.png',
+						D_name: []
+					},
+					{
+						'name': '购物车',
+						'src': 'img/下箭头.png',
+						D_name: []
+					},
+					{
+						'name': '收藏夹',
+					}
+				],
+			},
+			methods: {
+				showup: function() {
+					this.shows = 'display:block';
+				},
+				nodisplay: function() {
+					this.shows = 'display:none';
+				}
+			},
+		});
+		let title1 = new Vue({
+			el: '.title1',
+			data: {
+				active: '',
+				num: -1,
+				titlelist: [{
+						'name': 'HBuilderx',
+						'href': 'https://www.dcloud.io/',
+					},
+					{
+						'name': 'VsCode',
+						'href': 'https://code.visualstudio.com/',
+					},
+					{
+						'name': 'WebStorm',
+						'href': 'https://www.jetbrains.com/zh-cn/webstorm/',
+					},
+					{
+						'name': 'Git',
+						'href': 'https://git-scm.com/',
+					},
+					{
+						'name': 'Node',
+						'href': 'http://nodejs.cn/',
+					},
+					{
+						'name': 'Typora',
+						'href': 'https://typora.io/',
+					},
+					{
+						'name': 'PicGo',
+						'href': 'http://soft4.51xiazai.cn/pcsoftware/txtx/558621.html',
+					},
+				],
+			},
+			methods: {
+				mover(index) {
+					this.num = index;
+				}
+			}
+		});
+		let nav1 = new Vue({
+			el: '.nav1',
+			data: {
+				mark: 0,
+				time: '',
+				listnav1: [{
+						'icons': 'img/html.png',
+						'name': 'Html',
+						'src': 'img/下箭头.png',
+					},
+					{
+						'icons': 'img/css.png',
+						'name': 'Css',
+						'src': 'img/下箭头.png',
+					},
+					{
+						'icons': 'img/js.png',
+						'name': 'Javascript',
+						'src': 'img/下箭头.png',
+					},
+					{
+						'icons': 'img/mysql.png',
+						'name': 'MySql',
+						'src': 'img/下箭头.png',
+					},
+					{
+						'icons': 'img/echarts-pie.png',
+						'name': 'Echarts',
+						'src': 'img/下箭头.png',
+					},
+					{
+						'icons': 'img/Vue.png',
+						'name': 'Vue',
+						'src': 'img/下箭头.png',
+					},
+				],
+				listlbt: [
+					'img/0.jpg',
+					'img/1.jpg',
+					'img/3.jpg',
+					'img/7.jpg',
+				],
+				Sidelist: [{
+					lname: ['常用软件:', '常用软件:', '常用软件:'],
+					rname: [{
+							'name': 'HBuilderx',
+							'href': 'https://www.dcloud.io/',
+						},
+						{
+							'name': 'VsCode',
+							'href': 'https://code.visualstudio.com/',
+						},
+						{
+							'name': 'WebStorm',
+							'href': 'https://www.jetbrains.com/zh-cn/webstorm/',
+						},
+						{
+							'name': 'Git',
+							'href': 'https://git-scm.com/',
+						},
+						{
+							'name': 'Node',
+							'href': 'http://nodejs.cn/',
+						},
+						{
+							'name': 'Typora',
+							'href': 'https://typora.io/',
+						},
+						{
+							'name': 'PicGo',
+							'href': 'http://soft4.51xiazai.cn/pcsoftware/txtx/558621.html',
+						},
+					],
+					lname: ['常用软件1:', '常用资料1:', '实例讲解1:'],
+					rname: [{
+							'name': 'HBuilderx',
+							'href': 'https://www.dcloud.io/',
+						},
+						{
+							'name': 'VsCode',
+							'href': 'https://code.visualstudio.com/',
+						},
+						{
+							'name': 'WebStorm',
+							'href': 'https://www.jetbrains.com/zh-cn/webstorm/',
+						},
+						{
+							'name': 'Git',
+							'href': 'https://git-scm.com/',
+						},
+						{
+							'name': 'Node',
+							'href': 'http://nodejs.cn/',
+						},
+						{
+							'name': 'Typora',
+							'href': 'https://typora.io/',
+						},
+						{
+							'name': 'PicGo',
+							'href': 'http://soft4.51xiazai.cn/pcsoftware/txtx/558621.html',
+						},
+					],
+					rname1: [{
+							'name': 'HBuilderx',
+							'href': 'https://www.dcloud.io/',
+						},
+						{
+							'name': 'VsCode',
+							'href': 'https://code.visualstudio.com/',
+						},
+						{
+							'name': 'WebStorm',
+							'href': 'https://www.jetbrains.com/zh-cn/webstorm/',
+						},
+						{
+							'name': 'Git',
+							'href': 'https://git-scm.com/',
+						},
+						{
+							'name': 'Node',
+							'href': 'http://nodejs.cn/',
+						},
+						{
+							'name': 'Typora',
+							'href': 'https://typora.io/',
+						},
+						{
+							'name': 'PicGo',
+							'href': 'http://soft4.51xiazai.cn/pcsoftware/txtx/558621.html',
+						},
+					],
+				}],
+			},
+			methods: {
+				play() {
+					this.mark++;
+					if (this.mark == 4) {
+						this.mark = 0;
+					}
+				},
+				stop() {
+					clearInterval(this.time);
+				},
+				move() {
+					this.time = setInterval(this.play, 3000);
+				},
+			},
+			mounted() {
+				this.time = setInterval(this.play, 3000);
+			},
+		});
+		let day = new Vue({
+			el: '.input',
+			data: {
+				time:'',
+				days: [{
+					date: '',
+					time: '',
+					weeks: '',
+				}],
+			},
+			methods: {
+				nyr() {
+			     dt = new Date();
+					 var y =dt.getFullYear();
+					 var m =dt.getMonth()<=9? '0'+(dt.getMonth()+1):(dt.getMonth()+1);
+					 var d =dt.getDate()<=9? '0'+dt.getDate():dt.getDate();
+					 var hh =dt.getHours()<=9? '0'+dt.getHours():dt.getHours();
+					 var mm =dt.getMinutes()<=9? '0'+dt.getMinutes():dt.getMinutes();
+					 var ss =dt.getSeconds()<=9?' 0'+dt.getSeconds():dt.getSeconds();
+					 var wk ='星期'+'日一二三四五六'.charAt(dt.getDay());
+					 this.days[0].date=y+'年'+m+'月'+d+'日';
+					 this.days[0].time=hh+'时'+mm+'分'+ss+'秒';
+					 this.days[0].weeks=wk;
+				},
+			},
+			mounted() {
+				setInterval(this.nyr, 1000);
+			}
+		});
+	</script>
+
+</html>
