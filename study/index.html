@@ -87,7 +87,8 @@
 							</a>
 						</li>
 					</ul>
-					<ul class="r_Side-nav" v-for="(RSide,index) in Side.Rname" :style="num2===index?'display:block':'display:none'">
+					<ul class="r_Side-nav" v-for="(RSide,index) in Side.Rname"
+						:style="num2===index?'display:block':'display:none'">
 						<li v-for="(rnames,index) in RSide.rname">
 							<a href="">
 								{{rnames}}
@@ -97,9 +98,69 @@
 				</div>
 				<div class="lbt">
 					<img v-for="(lbt,index) in listlbt" :src="lbt" :key="index" @mouseover="stop" @mouseout="move"
-						v-show="index===mark" alt="">
+						@mousemove="move1" v-show="index===mark" alt="">
 				</div>
 			</nav>
+			<div class="k-videos">
+				<div class="bt">
+					<p>科学知识</p>
+					<a href="">更多视频</a>
+				</div>
+				<hr>
+				<div class="vds">
+				   <ul>
+						<li v-for="(kvd,index) in kvideolist">
+							<video  :src="kvd.list" :key="index" controls="controls"></video>
+							<p>{{kvd.text}}</p>
+						</li>
+				   </ul>
+				</div>	
+			</div>
+			<div class="x-videos">
+				<div class="bt">
+					<p>小学视频</p>
+					<a href="">更多视频</a>
+				</div>
+				<hr>
+				<div class="vds">
+				   <ul>
+						<li v-for="(xvd,index) in xvideolist">
+							<video  :src="xvd.list" :key="index" controls="controls"></video>
+							<p>{{xvd.text}}</p>
+						</li>
+				   </ul>
+				</div>	
+			</div>
+			<div class="c-videos">
+				<div class="bt">
+					<p>初中视频</p>
+					<a href="">更多视频</a>
+				</div>
+				<hr>
+				<div class="vds">
+				   <ul>
+						<li v-for="(cvd,index) in cvideolist">
+							<video  :src="cvd.list" :key="index" controls="controls"></video>
+							<p>{{cvd.text}}</p>
+						</li>
+				   </ul>
+				</div>	
+			</div>
+			<div class="g-videos">
+				<div class="bt">
+					<p>高中视频</p>
+					<a href="">更多视频</a>
+				</div>
+				<hr>
+				<div class="vds">
+				   <ul>
+						<li v-for="(gvd,index) in gvideolist">
+							<video  :src="gvd.list" :key="index" controls="controls"></video>
+							<p>{{gvd.text}}</p>
+						</li>
+				   </ul>
+				</div>	
+			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
@@ -192,6 +253,9 @@
 				time: '',
 				num1: -1,
 				num2: -1,
+				x: 0,
+				y: 0,
+				isshow: '',
 				listnav1: [{
 						'icons': 'img/一.png',
 						'name': '科学知识',
@@ -229,10 +293,10 @@
 					},
 				],
 				listlbt: [
-					'img/0.jpg',
-					'img/1.jpg',
-					'img/3.jpg',
-					'img/7.jpg',
+					'img/000.jpg',
+					'img/111.jpg',
+					'img/222.jpg',
+					'img/333.jpg',
 				],
 				Sidelist: [{
 						lname: ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级', '七年级', '八年级', '九年级', '高一', '高二',
@@ -326,84 +390,84 @@
 					{
 						lname: ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级', '七年级', '八年级', '九年级', '高一', '高二',
 							'高三', ],
-							Rname: [{
-									'rname': ['数学', '语文', '英语'],
-								},
-								{
-									'rname': ['1数学', '语文', '英语'],
-								},
-								{
-									'rname': ['2数学', '语文', '英语'],
-								},
-								{
-									'rname': ['3数学', '语文', '英语'],
-								},
-								{
-									'rname': ['4数学', '语文', '英语'],
-								},
-								{
-									'rname': ['5数学', '语文', '英语'],
-								},
-								{
-									'rname': ['6数学', '语文', '英语'],
-								},
-								{
-									'rname': ['7数学', '语文', '英语'],
-								},
-								{
-									'rname': ['8数学', '语文', '英语'],
-								},
-								{
-									'rname': ['9数学', '语文', '英语'],
-								},
-								{
-									'rname': ['10数学', '语文', '英语'],
-								},
-								{
-									'rname': ['11数学', '语文', '英语'],
-								},
-							],
+						Rname: [{
+								'rname': ['数学', '语文', '英语'],
+							},
+							{
+								'rname': ['1数学', '语文', '英语'],
+							},
+							{
+								'rname': ['2数学', '语文', '英语'],
+							},
+							{
+								'rname': ['3数学', '语文', '英语'],
+							},
+							{
+								'rname': ['4数学', '语文', '英语'],
+							},
+							{
+								'rname': ['5数学', '语文', '英语'],
+							},
+							{
+								'rname': ['6数学', '语文', '英语'],
+							},
+							{
+								'rname': ['7数学', '语文', '英语'],
+							},
+							{
+								'rname': ['8数学', '语文', '英语'],
+							},
+							{
+								'rname': ['9数学', '语文', '英语'],
+							},
+							{
+								'rname': ['10数学', '语文', '英语'],
+							},
+							{
+								'rname': ['11数学', '语文', '英语'],
+							},
+						],
 					},
 					{
 						lname: ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级', '七年级', '八年级', '九年级', '高一', '高二',
 							'高三', ],
-							Rname: [{
-									'rname': ['数学', '语文', '英语'],
-								},
-								{
-									'rname': ['1数学', '语文', '英语'],
-								},
-								{
-									'rname': ['2数学', '语文', '英语'],
-								},
-								{
-									'rname': ['3数学', '语文', '英语'],
-								},
-								{
-									'rname': ['4数学', '语文', '英语'],
-								},
-								{
-									'rname': ['5数学', '语文', '英语'],
-								},
-								{
-									'rname': ['6数学', '语文', '英语'],
-								},
-								{
-									'rname': ['7数学', '语文', '英语'],
-								},
-								{
-									'rname': ['8数学', '语文', '英语'],
-								},
-								{
-									'rname': ['9数学', '语文', '英语'],
-								},
-								{
-									'rname': ['10数学', '语文', '英语'],
-								},
-								{
-									'rname': ['11数学', '语文', '英语'],
-								},
-							],
+						Rname: [{
+								'rname': ['数学', '语文', '英语'],
+							},
+							{
+								'rname': ['1数学', '语文', '英语'],
+							},
+							{
+								'rname': ['2数学', '语文', '英语'],
+							},
+							{
+								'rname': ['3数学', '语文', '英语'],
+							},
+							{
+								'rname': ['4数学', '语文', '英语'],
+							},
+							{
+								'rname': ['5数学', '语文', '英语'],
+							},
+							{
+								'rname': ['6数学', '语文', '英语'],
+							},
+							{
+								'rname': ['7数学', '语文', '英语'],
+							},
+							{
+								'rname': ['8数学', '语文', '英语'],
+							},
+							{
+								'rname': ['9数学', '语文', '英语'],
+							},
+							{
+								'rname': ['10数学', '语文', '英语'],
+							},
+							{
+								'rname': ['11数学', '语文', '英语'],
+							},
+						],
 					},
 					{
 						lname: ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级', '七年级', '八年级', '九年级', '高一', '高二',
@@ -467,6 +531,15 @@
 				mover(index) {
 					this.num2 = index;
 				},
+				move1(e, index) {
+					this.x = e.clientX;
+					this.y = e.clientY;
+					if (this.x > 900 || this.y > 460) {
+						this.num1 = -1;
+					} else {
+						this.num1 = index;
+					}
+				}
 			},
 			mounted() {
 				this.time = setInterval(this.play, 3000);
@@ -501,6 +574,142 @@
 				setInterval(this.nyr, 1000);
 			}
 		});
+		let kvideo = new Vue({
+			el: '.k-videos',
+			data: {
+				kvideolist: [
+					  {
+							'list':'https://zy-input.weijiangshi.cn/online/video/1544076342_2018.8.20%E5%BE%AE%E6%A0%A1%E9%80%9A%E5%AE%A3%E4%BC%A0%E7%89%87%EF%BC%88%E4%B8%AD%E5%B0%8F%E5%AD%A6%EF%BC%89.mp4',
+							'page':'img/一年级语文上.jpg',
+							'text':'光海微校通',
+						},
+						{
+							'list':	'https://zy-input.weijiangshi.cn/online/video/346358321_2018.9.6%E5%B9%BC%E5%84%BF%E5%9B%AD%E5%AE%A3%E4%BC%A0%E7%89%87.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'光海微幼通',
+						},
+						{
+							'list':	'https://static.weixiaotong.com.cn/2babb456c7965c91775f5c5d85c233a691390a75.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'走进智慧校园',
+						},
+					],
+			 },
+		});
+		let xvideo = new Vue({
+			el: '.x-videos',
+			data: {
+				xvideolist: [
+					  {
+							'list':'https://static.weixiaotong.com.cn/0d7e72ceb0336a7659358fbfd5db6997c4298c2d.mp4',
+							'page':'img/一年级语文上.jpg',
+							'text':'部编版小学一年级上册《a o e》第一课时',
+						},
+						{
+							'list':	'https://static.weixiaotong.com.cn/70c3a7c9aedf1656e0cf96c270de8451d3adaab6.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'一年级上册数学《0的认识》',
+						},
+						{
+							'list':	'https://static.weixiaotong.com.cn/5c0e0242ef7fc20025dc668fc654cd53831ad417.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'部编版小学一年级上册《a o e》第二课时',
+						},
+						{
+							'list':	'https://static.weixiaotong.com.cn/a27647a8fb521920edf64d031b5d8b722cbf231a.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'一年级上册数学《1至5的认识》',
+						},
+						{
+							'list':	'https://static.weixiaotong.com.cn/09f64126c870e2ed0c7b73c18f981f8fd335413f.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'六年级上册语文《1至4单元整理复习》',
+						},
+						{
+							'list':	'https://static.weixiaotong.com.cn/a27647a8fb521920edf64d031b5d8b722cbf231a.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'六年级上册数学《百分数的整理和复习》',
+						},
+					],
+			 },
+		});
+		let cvideo = new Vue({
+			el: '.c-videos',
+			data: {
+				cvideolist: [
+						{
+							'list':	'https://static.weixiaotong.com.cn/684e08f8f96c3c7be3a838a9bed05cb529e9485f.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'春<一>',
+						},
+						{
+							'list':	'https://static.weixiaotong.com.cn/d1fd43167514c90d66e4e47ce39c8e6bc7bd8107.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'春<>',
+						},
+						{
+							'list':'https://static.weixiaotong.com.cn/fde544dcfcedc2eb17b6ec76ed602e75c141e343.mp4',
+							'page':'img/一年级语文上.jpg',
+							'text':'正数与负数<一>',
+						},
+						{
+							'list':	'https://static.weixiaotong.com.cn/39e79a8cbe91d9f3c23e806edb8c68070f9ef0aa.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'正数与负数<二>',
+						},
+						{
+							'list':	'https://static.weixiaotong.com.cn/77ad67027f7e5569f6b2ab03ed07196d30b3b13b.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'小升初英语如何学习',
+						},
+						{
+							'list':	'https://static.weixiaotong.com.cn/19413b28ae1ac34cf9fcc17d7ad17331b6978108.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'字母A-H的正确书写与发音',
+						},
+						
+					],
+			 },
+		});
+		let gvideo = new Vue({
+			el: '.g-videos',
+			data: {
+				gvideolist: [
+					   {
+					   	'list':	'https://static.weixiaotong.com.cn/2a55c42c61c99e81f7fd5f294b81e15c1595cd7b.mp4',
+					   	'page':	'img/一年级数学上.jpg',
+					   	'text':'沁园春<一>',
+					   },
+					   {
+					   	'list':	'https://static.weixiaotong.com.cn/1c3bb1d578de335d270b4df534d21b083b699852.mp4',
+					   	'page':	'img/一年级数学上.jpg',
+					   	'text':'沁园春<二>',
+					   },
+					   {
+							'list':'https://static.weixiaotong.com.cn/7e1234cbc694b86894e025089df253fefb99412a.mp4',
+							'page':'img/一年级语文上.jpg',
+							'text':'集合的概念',
+						},
+						{
+							'list':	'https://static.weixiaotong.com.cn/4661d0a029c024ee6eafd89d1ec24b17f7399050.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'集合间的基本关系',
+						},
+					
+						{
+							'list':	'https://static.weixiaotong.com.cn/c5461029f49f8b9d94b626ba3beb7045ce1ab0d3.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'英语<一>',
+						},
+						{
+							'list':	'https://static.weixiaotong.com.cn/7e1234cbc694b86894e025089df253fefb99412a.mp4',
+							'page':	'img/一年级数学上.jpg',
+							'text':'英语<二>',
+						},
+					],
+			 },
+		});
+		
 	</script>
 
 </html>
